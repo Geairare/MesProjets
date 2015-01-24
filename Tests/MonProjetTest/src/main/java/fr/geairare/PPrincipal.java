@@ -1,4 +1,4 @@
-package paquetage;
+package fr.geairare;
 
 import org.apache.log4j.Logger;
 
