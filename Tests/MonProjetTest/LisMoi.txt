@@ -1,0 +1,8 @@
+Sous Eclipse
+============
+
+Configurer Exécuter
+Maven build... MonProjetTest clean install
+
+Exécuter Application Java
+MonProjetTest fr.geairare.PPrincipal
