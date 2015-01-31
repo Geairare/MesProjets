@@ -11,7 +11,7 @@ public class swing1 extends JFrame {
 	static	final	long	serialVersionUID = -1L ;
 
 	   public swing1() {
-	      super("titre de l'application");
+	      super("Titre de l'application");
 
 	      WindowListener l = new WindowAdapter() {
 	         public void windowClosing(WindowEvent e){
@@ -21,6 +21,7 @@ public class swing1 extends JFrame {
 
 	      addWindowListener(l);
 	      setSize(400,200);
-	      setVisible(true);
+	      setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
+	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
 	   }
 	}
