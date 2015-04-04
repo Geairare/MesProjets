@@ -16,6 +16,8 @@ public class PPrincipal {
 	     logger.info("Entering application.");
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 	     
+			logger.debug(System.getenv()) ;
+			
 					JFrame frame = new swing1();
 					frame.setVisible(true);
  
