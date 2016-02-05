@@ -1,6 +1,9 @@
 Sous Eclipse
 ============
 
+General/Workspace text encoding UTF-8
+
+
 Configurer Exécuter
 Maven build... MonProjetTest clean install
 
