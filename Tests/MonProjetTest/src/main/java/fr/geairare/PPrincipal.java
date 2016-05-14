@@ -13,15 +13,19 @@ public class PPrincipal {
 	static	Logger logger = Logger.getLogger(PPrincipal.class.getName()) ;
 
 	public static void main(String[] args) {
+		Locale defaultLocale = Locale.getDefault();
+		Locale fr_FR = new Locale("fr", "FR") ;
+		Locale en_EN = new Locale("en", "EN") ;
 		
-	     logger.info("Entering application.");
+	     logger.info("Lancement de l'application.");
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 
 			ResourceBundle bundle = 
 					   ResourceBundle.getBundle("messages",
-					        Locale.getDefault());
+							   en_EN);
 			
 					JFrame frame = new swing1(bundle);
+					frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					frame.setVisible(true);
  
 			while( frame.isShowing() ) {
@@ -33,7 +37,7 @@ public class PPrincipal {
 				logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 			}
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
-	     logger.info("Exiting application.");
+	     logger.info("Sortie de l'application.");
 
 	}
 

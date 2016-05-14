@@ -26,6 +26,6 @@ public class swing1 extends JFrame {
 
 	      setSize(400,200);
 	      setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
-	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
+	      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //EXIT_ON_CLOSE On dit à l'application de se fermer lors du clic sur la croix
 	   }
 	}
