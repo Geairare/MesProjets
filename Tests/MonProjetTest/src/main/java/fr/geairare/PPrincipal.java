@@ -16,28 +16,48 @@ public class PPrincipal {
 		Locale defaultLocale = Locale.getDefault();
 		Locale fr_FR = new Locale("fr", "FR") ;
 		Locale en_EN = new Locale("en", "EN") ;
-		
-	     logger.info("Lancement de l'application.");
-			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 
-			ResourceBundle bundle = 
-					   ResourceBundle.getBundle("messages",
-							   en_EN);
-			
-					JFrame frame = new swing1(bundle);
-					frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					frame.setVisible(true);
- 
-			while( frame.isShowing() ) {
+		logger.info("Lancement de l'application.");
+		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+
+		Runnable r = new Runnable() {
+			public void run() {
+				Object o = new Object();
 				try {
-					Thread.sleep(1000l);
-				} catch (InterruptedException e) {
-					logger.info("Interruption :", e ) ;
+					synchronized (o) {
+						o.wait();
+					}
+				} catch (InterruptedException ie) {
 				}
-				logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+			}
+		};
+		Thread t = new Thread(r);
+		t.setDaemon(false);
+		t.start();		
+
+
+
+		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+
+
+
+		ResourceBundle bundle = 
+				ResourceBundle.getBundle("messages",
+						en_EN);
+
+		JFrame frame = new swing1(bundle);
+		frame.setVisible(true);
+
+		while( frame.isShowing() ) {
+			try {
+				Thread.sleep(1000l);
+			} catch (InterruptedException e) {
+				logger.info("Interruption :", e ) ;
 			}
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
-	     logger.info("Sortie de l'application.");
+		}
+		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		logger.info("Sortie de l'application.");
 
 	}
 
