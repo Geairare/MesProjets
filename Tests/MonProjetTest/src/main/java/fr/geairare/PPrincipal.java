@@ -57,6 +57,11 @@ public class PPrincipal {
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 		}
 		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		}
+		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 		logger.info("Sortie de l'application.");
 
 	}
