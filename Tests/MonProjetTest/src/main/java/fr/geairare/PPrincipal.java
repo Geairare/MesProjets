@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 
 import fr.geairare.swing.swing1;
 
-
 public class PPrincipal {
 	static	Logger logger = Logger.getLogger(PPrincipal.class.getName()) ;
 
@@ -43,7 +42,7 @@ public class PPrincipal {
 
 		ResourceBundle bundle = 
 				ResourceBundle.getBundle("messages",
-						en_EN);
+						fr_FR);
 
 		JFrame frame = new swing1(bundle);
 		frame.setVisible(true);
@@ -63,7 +62,7 @@ public class PPrincipal {
 		}
 		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 		logger.info("Sortie de l'application.");
-
+		System.exit(0);
 	}
 
 }

@@ -45,6 +45,7 @@ public class swing1 extends JFrame implements ActionListener {
 		// Utilisation d'un toolkit pour l'affichage d'une icone associée à la
 		// fenêtre
 		Toolkit tk = Toolkit.getDefaultToolkit();
+		// /home/gerard/Documents/Git/MesProjets/MesProjets/Tests/MonProjetTest/
 		Image JFrameIcon = tk.getImage("tips.gif");
 		setIconImage(JFrameIcon);
 
