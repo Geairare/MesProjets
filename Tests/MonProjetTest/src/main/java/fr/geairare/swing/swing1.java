@@ -10,6 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -17,13 +18,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import org.apache.log4j.Logger;
-
 import fr.geairare.PPrincipal;
 
 public class swing1 extends JFrame implements ActionListener {
+	private static	String	sourceClass = swing1.class.getName() ;
+	private final	static Logger logger = Logger.getLogger(sourceClass);
+
 	static final long serialVersionUID = -1L;
-	static Logger logger = Logger.getLogger(swing1.class.getName());
 	JPanel panel;
 	JMenuBar mbar;
 	JMenu m1;
@@ -37,7 +38,7 @@ public class swing1 extends JFrame implements ActionListener {
 		// gestion evenementielle de la fermeture de la fenêtre
 		WindowListener l = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				logger.info("windowClosing.");
+				logger.info("Fermeture de la fenêtre.");
 			}
 		};
 		addWindowListener(l);
@@ -46,7 +47,8 @@ public class swing1 extends JFrame implements ActionListener {
 		// fenêtre
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		// /home/gerard/Documents/Git/MesProjets/MesProjets/Tests/MonProjetTest/
-		Image JFrameIcon = tk.getImage("src/main/resources/tips.gif");
+		ClassLoader cl = this.getClass().getClassLoader();
+		Image JFrameIcon = tk.getImage(cl.getResource("tips.gif"));
 		setIconImage(JFrameIcon);
 
 		// insertion d'objets graphiques sur la fenêtre à partir d'un panneau

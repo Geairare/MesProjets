@@ -2,14 +2,16 @@ package fr.geairare;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
-import org.apache.log4j.Logger;
 
 import fr.geairare.swing.swing1;
 
 public class PPrincipal {
-	static	Logger logger = Logger.getLogger(PPrincipal.class.getName()) ;
+	private static	String	sourceClass = PPrincipal.class.getName() ;
+	private final	static Logger logger = Logger.getLogger(sourceClass);
 
 	public static void main(String[] args) {
 		Locale defaultLocale = Locale.getDefault();
@@ -51,7 +53,7 @@ public class PPrincipal {
 			try {
 				Thread.sleep(1000l);
 			} catch (InterruptedException e) {
-				logger.info("Interruption :", e ) ;
+				logger.log(Level.INFO, "Interruption :", e ) ;
 			}
 			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
 		}
