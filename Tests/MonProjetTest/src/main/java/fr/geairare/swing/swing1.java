@@ -18,22 +18,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import fr.geairare.PPrincipal;
-
 public class swing1 extends JFrame implements ActionListener {
-	private static	String	sourceClass = swing1.class.getName() ;
-	private final	static Logger logger = Logger.getLogger(sourceClass);
+	private static String sourceClass = swing1.class.getName();
+	private final static Logger logger = Logger.getLogger(sourceClass);
 
 	static final long serialVersionUID = -1L;
 	JPanel panel;
 	JMenuBar mbar;
 	JMenu m1;
 	JMenu m2;
+	JMenu m3;
 
 	public swing1(ResourceBundle bundle) {
 
 		super(bundle.getString("titre"));
-		setSize(300,200);
+		setSize(300, 200);
 
 		// gestion evenementielle de la fermeture de la fenêtre
 		WindowListener l = new WindowAdapter() {
@@ -59,22 +58,34 @@ public class swing1 extends JFrame implements ActionListener {
 
 		// Ajout d'une barre de menus à la fenêtre
 		mbar = new JMenuBar();
-		m1 = new JMenu("Couleur fond");
-		JMenuItem m11 = new JMenuItem("Jaune");
+		m1 = new JMenu(bundle.getString("couleurFondTitre"));
+		JMenuItem m11 = new JMenuItem(bundle.getString("couleurFondJaune"));
+		m11.setActionCommand("ActionJaune");
 		m11.addActionListener(this); // installation d'un écouteur d'action
 		m1.add(m11); // ajout d'une option à un menu
-		JMenuItem m12 = new JMenuItem("Rouge");
+		JMenuItem m12 = new JMenuItem(bundle.getString("couleurFondRouge"));
+		m12.setActionCommand("ActionRouge");
 		m12.addActionListener(this);
 		m1.add(m12);
-		m2 = new JMenu("Couleur menu");
-		JMenuItem m21 = new JMenuItem("Bleu");
+		m2 = new JMenu(bundle.getString("couleurMenuTitre"));
+		JMenuItem m21 = new JMenuItem(bundle.getString("couleurMenuBleu"));
+		m21.setActionCommand("ActionBleu");
 		m21.addActionListener(this);
 		m2.add(m21);
-		JMenuItem m22 = new JMenuItem("Vert");
+		JMenuItem m22 = new JMenuItem(bundle.getString("couleurMenuVert"));
+		m22.setActionCommand("ActionVert");
 		m22.addActionListener(this);
 		m2.add(m22);
+		m3 = new JMenu("Langue");
+		JMenuItem m31 = new JMenuItem("fr-FR");
+		m31.addActionListener(this); // installation d'un écouteur d'action
+		m3.add(m31); // ajout d'une option à un menu
+		JMenuItem m32 = new JMenuItem("en-EN");
+		m32.addActionListener(this);
+		m3.add(m32);
 		mbar.add(m1); // ajout de menus à la barre de menus
 		mbar.add(m2);
+		mbar.add(m3);
 		setJMenuBar(mbar);
 
 		setLocationRelativeTo(null); // On centre la fenêtre sur l'écran

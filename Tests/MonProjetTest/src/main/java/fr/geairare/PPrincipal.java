@@ -36,46 +36,46 @@ public class PPrincipal {
 		if( args.length < 1 ) {
 			File configFile = new File(fichierDeConfigurationParDéfaut) ;
 			if( ! configFile.exists()) {
-				System.out.println(currentDate + " : Nécessite un fichier de configuration " + fichierDeConfigurationParDéfaut + " ...");
+				System.out.println(currentDate + " : Nécessite un fichier de configuration \"" + fichierDeConfigurationParDéfaut + "\" ...");
 				if( Config.getInstance().copyFile(configurationFile) )
-					System.out.println( currentDate + " : Successfully created from embedded template.");
+					System.out.println( currentDate + " : a pu être créé depuis le modèle embarqué.");
 				else {
-					System.out.println( currentDate + " : Unable to create it from embedded template.");
+					System.out.println( currentDate + " : n'a pas pu être créé depuis le modèle embarqué.");
 					System.exit(-1) ;
 				}
 			}
 		} else {
 			Options options = new Options();
-			options.addOption("c", true, "configuration file");
-			options.addOption("h", false, "help");
+			options.addOption("c", true, "fichier de configuration");
+			options.addOption("h", false, "aide");
 			CommandLineParser parser = new DefaultParser();
 			try {
 				CommandLine cmd = parser.parse( options, args);
 				if( cmd.hasOption("h")) {
 					System.out.println("Usage:");
-					System.out.println(" -h: this help");
-					System.out.println(" -c file: path to configuration file");
+					System.out.println(" -h: cette aide");
+					System.out.println(" -c fichier: chemin du fichier de configuration");
 					System.exit(0) ;
 				}
 				if( cmd.hasOption("c")) {
 					configurationFile = cmd.getOptionValue("c") ;
 					if( configurationFile == null ) {
-						System.out.println("file must follows -c option");
+						System.out.println("un fichier doit suivre l'option -c");
 						System.exit(-4) ;
 					}
 				}
 			} catch (ParseException e) {
-				System.out.println("Wrong command line option.");
+				System.out.println("Mauvaise option de ligne de commande.");
 				System.exit(-3) ;
 			}
 
 			File configFile = new File(configurationFile) ;
 			if( ! configFile.exists()) {
-				System.out.println("Configuration file \"" + configurationFile + "\" not found.");
+				System.out.println("Fichier de configuration \"" + configurationFile + "\" introuvable.");
 				System.exit(-1) ;
 			}
 		}
-		System.out.println(currentDate +" : started...");
+		System.out.println(currentDate +" : démarrage...");
 
 		config = Config.getInstance().loadConfig(configurationFile);
 
@@ -87,7 +87,7 @@ public class PPrincipal {
 		}
 
 		logger.info("Lancement de l'application.");
-		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		logger.info( "Nombre de fils d'éxécution: " + Thread.activeCount()) ;
 
 		Runnable r = new Runnable() {
 			public void run() {
@@ -106,7 +106,7 @@ public class PPrincipal {
 
 
 
-		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		logger.info( "Nombre de fils d'éxécution: " + Thread.activeCount()) ;
 
 
 
@@ -123,14 +123,14 @@ public class PPrincipal {
 			} catch (InterruptedException e) {
 				logger.log(Level.INFO, "Interruption :", e ) ;
 			}
-			logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+			logger.info( "Nombre de fils d'éxécution: " + Thread.activeCount()) ;
 		}
-		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		logger.info( "Nombre de fils d'éxécution: " + Thread.activeCount()) ;
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 		}
-		logger.info( "Thread.activeCount: " + Thread.activeCount()) ;
+		logger.info( "Nombre de fils d'éxécution: " + Thread.activeCount()) ;
 		logger.info("Sortie de l'application.");
 		System.exit(0);
 	}

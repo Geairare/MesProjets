@@ -46,18 +46,20 @@ public class Config {
 			File fichierDeConfig = new File(filename) ;
 			if( ! fichierDeConfig.exists()) {
 				logger.fine("Fichier :\"" + filename + "\" introuvable.");
-				// fichirDeConfig n'existe pas dans le dossier courant
+				// fichierDeConfig n'existe pas dans le dossier courant
 				// chercher dans le chemin
 				fichierDeConfig = new File(cl.getResource(filename).toString() ) ;
 			}
 			doc = builder.build(fichierDeConfig);
-			logger.fine( sourceMethod + "Configuration successfully loading from " + filename );
+			logger.fine( sourceMethod + "Configuration chargée depuis " + filename );
 			Element eltRoot = doc.getRootElement();
 
 			setDisplayKpiDelay(Integer.valueOf(eltRoot.getChild("displayKpiDelay").getValue()));
 			setLocale(eltRoot.getChild("localisation").getValue());
+			
+			dumpConfig();
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, sourceMethod + "Fail to load configuration:" + filename, e);
+			logger.log(Level.SEVERE, sourceMethod + "Èchec de chargement de la configuration:" + filename, e);
 		}
 		return instance ;
 	}
@@ -92,7 +94,7 @@ public class Config {
 			output.close();
 			return true ;
 		} catch ( IOException e) {
-			logger.warning("Unable to copy file");
+			logger.warning("Impossible de copier le fichier.");
 			return false ;
 		}
 	}
