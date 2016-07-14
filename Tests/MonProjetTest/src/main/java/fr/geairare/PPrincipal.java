@@ -80,6 +80,7 @@ public class PPrincipal {
 		config = Config.getInstance().loadConfig(configurationFile);
 
 		Locale locale = Locale.getDefault();
+		logger.fine(locale.toString());
 		String configLocale = config.getLocale() ;
 		if( configLocale != null ) {
 			locale = new Locale(configLocale) ;
@@ -114,6 +115,8 @@ public class PPrincipal {
 				ResourceBundle.getBundle("messages",
 						locale);
 
+		logger.info("Bundle " + bundle.getBaseBundleName());
+		
 		JFrame frame = new swing1(bundle);
 		frame.setVisible(true);
 
