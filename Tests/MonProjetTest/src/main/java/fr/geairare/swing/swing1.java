@@ -82,11 +82,14 @@ public class swing1 extends JFrame implements ActionListener {
 
 		m3 = new JMenu("Langue");
 		JMenuItem m31 = new JMenuItem("fr_FR");
+		m31.setActionCommand("ActionFR");
 		m31.addActionListener(this); // installation d'un écouteur d'action
 		m3.add(m31); // ajout d'une option à un menu
 		JMenuItem m32 = new JMenuItem("en_EN");
+		m32.setActionCommand("ActionEN");
 		m32.addActionListener(this);
 		m3.add(m32);
+
 		mbar.add(m1); // ajout de menus à la barre de menus
 		mbar.add(m2);
 		mbar.add(m3);
@@ -118,22 +121,24 @@ public class swing1 extends JFrame implements ActionListener {
 				mbar.setBackground(Color.green);
 				m1.setBackground(Color.green);
 				m2.setBackground(Color.green);
-			} else if (ChoixOption.equals("en_EN")) {
-				Locale locale = new Locale("en_EN") ;
+			} else if (ChoixOption.equals("ActionEN")) {
+				Locale locale = new Locale("en", "EN", "") ;
 				ResourceBundle bundle = 
 						ResourceBundle.getBundle("messages",
 								locale);
 				m1.setText(bundle.getString("couleurFondTitre"));
 				m1.repaint();
 				logger.info("Repeint m1");
-			} else if (ChoixOption.equals("fr_FR")) {
-				Locale locale = new Locale("fr_FR") ;
+				this.setTitle(bundle.getString("titre"));
+			} else if (ChoixOption.equals("ActionFR")) {
+				Locale locale = new Locale("fr", "FR", "") ;
 				ResourceBundle bundle = 
 						ResourceBundle.getBundle("messages",
 								locale);
 				m1.setText(bundle.getString("couleurFondTitre"));
 				m1.repaint();
 				logger.info("Repeint m1");
+				this.setTitle(bundle.getString("titre"));
 			}
 		}
 		;

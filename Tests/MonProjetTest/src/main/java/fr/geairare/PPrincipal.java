@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -87,16 +88,27 @@ public class PPrincipal {
 		config = Config.getInstance().loadConfig(configurationFile);
 
 		Locale locale = Locale.getDefault();
-		logger.info("Locale défaut, language: " + locale.getLanguage() + ", pays: " + locale.getCountry());
+		StringTokenizer strTok = null ;
+		String langue = "" ;
+		String pays = "" ;
+		String variante = "" ;
+		logger.info("Locale défaut, language: " + locale.getLanguage() + ", pays: " + locale.getCountry() + ", variante: " + locale.getVariant());
 		if (langueLigneDeCommande != null) {
-			locale = new Locale(langueLigneDeCommande);
-			logger.info("Locale de ligne de commande: " + langueLigneDeCommande);
+			strTok = new StringTokenizer(langueLigneDeCommande, "_") ;
+			logger.info("Locale de ligne de commande: " + langueLigneDeCommande );
 		} else {
 			String configLocale = config.getLocale();
 			if (configLocale != null) {
-				locale = new Locale(configLocale);
-				logger.info("Locale de config: " + configLocale);
+				strTok = new StringTokenizer(configLocale, "_") ;
+				logger.info("Locale de config: " + configLocale );
 			}
+		}
+		if( strTok != null ) {
+		if( strTok.hasMoreTokens()) langue = strTok.nextToken() ;
+		if( strTok.hasMoreTokens()) pays = strTok.nextToken() ;
+		if( strTok.hasMoreTokens()) variante = strTok.nextToken() ;
+		locale = new Locale(langue, pays, variante);
+		logger.info("Langue: " + langue + ", pays: " + pays + ", variante: " + variante );
 		}
 
 		logger.info("Lancement de l'application.");

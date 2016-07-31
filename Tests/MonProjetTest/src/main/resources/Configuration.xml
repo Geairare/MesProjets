@@ -4,5 +4,5 @@
 	<displayKpiDelay>10</displayKpiDelay>
 	
 	<!-- Localisations supportées: fr_FR, en_EN -->
-	<localisation>en_US</localisation>
+	<localisation>en_EN</localisation>
 </application>
