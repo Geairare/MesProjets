@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -34,7 +35,7 @@ public class swing1 extends JFrame implements ActionListener {
 		super(bundle.getString("titre"));
 		setSize(300, 200);
 
-		// gestion evenementielle de la fermeture de la fenêtre
+		// gestion évenementielle de la fermeture de la fenêtre
 		WindowListener l = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				logger.info("Fermeture de la fenêtre.");
@@ -58,6 +59,7 @@ public class swing1 extends JFrame implements ActionListener {
 
 		// Ajout d'une barre de menus à la fenêtre
 		mbar = new JMenuBar();
+
 		m1 = new JMenu(bundle.getString("couleurFondTitre"));
 		JMenuItem m11 = new JMenuItem(bundle.getString("couleurFondJaune"));
 		m11.setActionCommand("ActionJaune");
@@ -67,6 +69,7 @@ public class swing1 extends JFrame implements ActionListener {
 		m12.setActionCommand("ActionRouge");
 		m12.addActionListener(this);
 		m1.add(m12);
+
 		m2 = new JMenu(bundle.getString("couleurMenuTitre"));
 		JMenuItem m21 = new JMenuItem(bundle.getString("couleurMenuBleu"));
 		m21.setActionCommand("ActionBleu");
@@ -76,11 +79,12 @@ public class swing1 extends JFrame implements ActionListener {
 		m22.setActionCommand("ActionVert");
 		m22.addActionListener(this);
 		m2.add(m22);
+
 		m3 = new JMenu("Langue");
-		JMenuItem m31 = new JMenuItem("fr-FR");
+		JMenuItem m31 = new JMenuItem("fr_FR");
 		m31.addActionListener(this); // installation d'un écouteur d'action
 		m3.add(m31); // ajout d'une option à un menu
-		JMenuItem m32 = new JMenuItem("en-EN");
+		JMenuItem m32 = new JMenuItem("en_EN");
 		m32.addActionListener(this);
 		m3.add(m32);
 		mbar.add(m1); // ajout de menus à la barre de menus
@@ -101,20 +105,36 @@ public class swing1 extends JFrame implements ActionListener {
 		// gestion des événements liés aux menus
 		{
 			String ChoixOption = evt.getActionCommand();
-			if (ChoixOption.equals("Jaune"))
+			logger.info("Èvènement: " + ChoixOption);
+			if (ChoixOption.equals("ActionJaune"))
 				panel.setBackground(Color.yellow);
-			else if (ChoixOption.equals("Rouge"))
+			else if (ChoixOption.equals("ActionRouge"))
 				panel.setBackground(Color.red);
-			else if (ChoixOption.equals("Bleu")) {
+			else if (ChoixOption.equals("ActionBleu")) {
 				mbar.setBackground(Color.blue);
 				m1.setBackground(Color.blue);
 				m2.setBackground(Color.blue);
-			} else if (ChoixOption.equals("Vert")) {
+			} else if (ChoixOption.equals("ActionVert")) {
 				mbar.setBackground(Color.green);
 				m1.setBackground(Color.green);
 				m2.setBackground(Color.green);
+			} else if (ChoixOption.equals("en_EN")) {
+				Locale locale = new Locale("en_EN") ;
+				ResourceBundle bundle = 
+						ResourceBundle.getBundle("messages",
+								locale);
+				m1.setText(bundle.getString("couleurFondTitre"));
+				m1.repaint();
+				logger.info("Repeint m1");
+			} else if (ChoixOption.equals("fr_FR")) {
+				Locale locale = new Locale("fr_FR") ;
+				ResourceBundle bundle = 
+						ResourceBundle.getBundle("messages",
+								locale);
+				m1.setText(bundle.getString("couleurFondTitre"));
+				m1.repaint();
+				logger.info("Repeint m1");
 			}
-			;
 		}
 		;
 	}
