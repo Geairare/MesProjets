@@ -28,7 +28,7 @@ C.f. [markdown-page-generator-plugin](https://github.com/vsch/markdown-page-gene
   <configuration>
     <alwaysUseDefaultTitle>true</alwaysUseDefaultTitle>
     <copyDirectories>css,images</copyDirectories>
-    <defaultTitle>ExternalBillPaymentMockup</defaultTitle>
+    <defaultTitle>Titre par défaut</defaultTitle>
     <footerHtmlFile>doc/footer.html</footerHtmlFile>
     <headerHtmlFile>doc/header.html</headerHtmlFile>
     <inputDirectory>doc</inputDirectory>
