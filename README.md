@@ -4,7 +4,7 @@ Tests Git et bidouilles
 
 
 MonProjetTest
-	MonProjetTestSwing
+	[MonProjetTestSwing](Tests/MonProjetTest/LisMoiDéveloppeur.md)
 
 MonProjetTest2
 
