@@ -1,4 +1,4 @@
-package com.jmd.test.struts.data;
+package fr.geairare.donnees;
 
 import org.apache.struts.action.*;
 import javax.servlet.http.HttpServletRequest;

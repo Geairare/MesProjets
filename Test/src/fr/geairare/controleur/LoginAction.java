@@ -1,4 +1,4 @@
-package com.jmd.test.struts.controleur;
+package fr.geairare.controleur;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.jmd.test.struts.data.LoginForm;
+import fr.geairare.donnees.LoginForm;
 
 public final class LoginAction extends Action {
 
