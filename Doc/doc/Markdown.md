@@ -1,6 +1,6 @@
 # Markdown
 
-##Table des matiÃ¨res
+##Table des matiéres
 [TOC levels=1-4 bullet hierarchy numbered]
 
 Retour vers [README](../README.md)
@@ -269,6 +269,6 @@ Bla bla bla
 [^1]: Foot note text
 Bla bla bla
 
-Return to [Table des matiÃ¨res](Table des matiÃ¨res)
+Return to [Table des matiéres](Table des matiéres)
 
 
