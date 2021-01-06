@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+<f:view>
+	<h:head>
+		<meta content="text/css" http-equiv="Content-Style-Type" />
+		<meta content="text/html; charset=ISO-8859-1"
+			http-equiv="Content-Type" />
+		<title>USSD/SMS Terminal simulator</title>
+		<h:outputStylesheet name="style.css" library="css" />
+	</h:head>
+
+	<h:body>
+
+		<div id="pageLayout" style="text-align: left">
+			<div id="banner"
+				style="width: 100%; height: 118px; background: #bbb url('../images/gradient_top.gif') repeat-x; padding-top: 10px; margin: 0">
+				<h:graphicImage value="images/esglogo.png" style="padding: 10px" />
+				<span style="float: right; margin-top: 20px;"> <h:outputText
+						value="Test Web"
+						style="font-size: 30px;font-family: arial,helvetica;font-weight: bold;margin-right: 20px" />
+					<h:outputText value="v #{resourcesMsgs['version']}"
+						style="font-size: 15px;font-family: arial,helvetica;font-weight: bold;margin-right: 20px" />
+				</span>
+			</div>
+
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
+					<h:outputLabel for="@next" value="Basic Spinner: " />
+					<p:spinner id="basic" value="#{spinnerView.number1}" />
+
+					<h:outputLabel for="@next" value="Step Factor: " />
+					<p:spinner id="step" value="#{spinnerView.number2}"
+						stepFactor="0.25" />
+
+					<h:outputLabel for="@next" value="Min/Max: " />
+					<p:spinner id="minMax" value="#{spinnerView.number3}" min="0"
+						max="100" />
+
+					<h:outputLabel for="@next" value="Rotate: " />
+					<p:spinner id="rotate" value="#{spinnerView.number6}" min="0"
+						max="10" rotate="true" />
+
+					<h:outputLabel for="@next" value="Prefix: " />
+					<p:spinner id="prefix" value="#{spinnerView.number4}" prefix="$"
+						min="0" />
+
+					<h:outputLabel for="ajaxSpinner" value="Ajax Spinner: " />
+					<p:outputPanel>
+						<p:spinner id="ajaxSpinner" value="#{spinnerView.number5}">
+							<p:ajax update="ajaxSpinnerValue" process="@this" />
+						</p:spinner>
+						<h:outputText id="ajaxSpinnerValue" value="#{spinnerView.number5}"
+							style="padding-left: 10px" />
+					</p:outputPanel>
+				</h:panelGrid>
+
+				<br />
+
+				<p:commandButton value="Submit" update="display"
+					oncomplete="PF('dlg').show()" />
+
+				<p:dialog header="Values" widgetVar="dlg" showEffect="fold"
+					hideEffect="fold">
+					<h:panelGrid id="display" columns="2" cellpadding="5">
+						<h:outputText value="Value 1: " />
+						<h:outputText value="#{spinnerView.number1}" />
+
+						<h:outputText value="Value 2: " />
+						<h:outputText value="#{spinnerView.number2}" />
+
+						<h:outputText value="Value 3: " />
+						<h:outputText value="#{spinnerView.number3}" />
+
+						<h:outputText value="Value 4: " />
+						<h:outputText value="#{spinnerView.number4}" />
+
+						<h:outputText value="Value 5: " />
+						<h:outputText value="#{spinnerView.number5}" />
+					</h:panelGrid>
+				</p:dialog>
+			</h:form>
+
+			<h:form>
+				<p:growl>
+					<p:autoUpdate />
+				</p:growl>
+
+				<p:signature style="width:400px;height:200px" widgetVar="sig"
+					value="#{signatureView.value}" required="true" guideline="true" />
+
+				<div style="margin: 20px 0">
+					<p:commandButton value="Submit" icon="pi pi-check" update="output" />
+					<p:commandButton value="Clear" icon="pi pi-times" type="button"
+						onclick="PF('sig').clear()" />
+				</div>
+
+				<p:outputPanel id="output">
+					<h:outputText rendered="#{not empty signatureView.value}"
+						style="font-size:24px;display:block" value="Your Signature" />
+					<p:signature style="width:400px;height:200px;"
+						value="#{signatureView.value}" readonly="true"
+						rendered="#{not empty signatureView.value}"
+						backgroundColor="#eaeaea" color="#03a9f4" />
+				</p:outputPanel>
+			</h:form>
+		</div>
+	</h:body>
+</f:view>
+</html>
