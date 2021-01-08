@@ -2,19 +2,15 @@
 
 Tests Git et bidouilles
 
-## MonProjetTest
-	[MonProjetTestSwing](Tests/MonProjetTest/LisMoi.md)
+## [MonProjetTestSwing](Tests/MonProjetTest/LisMoi.md)
 
-## MonProjetTest2
+## [MonProjetTest2](Tests/MonProjetTest2/LisMoi.md)
 
-## TestServlet
-	[TestServlet](Tests/TestServlet/LisMoi.md)
+## [TestServlet](Tests/TestServlet/LisMoi.md)
 
-## TestStruts
-	[TestStruts](Tests/TestStruts/LisMoi.md)
+## [TestStruts](Tests/TestStruts/LisMoi.md)
 
-## TestWeb
-	[TestWeb](Tests/TestWeb/LisMoi.md)
+## [TestWeb](Tests/TestWeb/LisMoi.md)
 
 # Eclipse
 
@@ -52,6 +48,8 @@ Off/On Tags
 + Organize imports
  
 ### Java / Code Style / Code template
+
+Check box: Enable project specific settings
 
 + Comments / Files
 
