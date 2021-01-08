@@ -19,7 +19,14 @@ Utilise MonEclipse.ini
 
 Windows / preferences / Import: EclipsePreferences.epf
 
+## Dans Java Installed JREs ajouter JDK 11
+
+(e.g. E:\Java\jdk-11.0.8.10-hotspot)
+
 ## Détails
+
+Windows / Preferences / General / Startup and Shutdown
++ Workspace: cocher Show full workspace path
 
 Windows / Preferences / General / Editors / Text editors / Spelling:
 + Encoding: Other UTF-8
