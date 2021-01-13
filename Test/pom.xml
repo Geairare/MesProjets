@@ -6,6 +6,14 @@
 	<artifactId>Test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+
+	<parent>
+		<artifactId>MesProjets</artifactId>
+		<groupId>MesProjets</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

@@ -1,7 +1,6 @@
 /*
-* Copyright (c) 2020. Seamless Distribution Systems AB - eServGlobal SAS - All Rights Reserved
-* Unauthorized copying of this file, via any medium is strictly prohibited. It is proprietary and confidential.
-* Author : G.Courouble gerard.courouble@seamless.se
+* Geairare 2021
+* Author : Geairare gco.alias@laposte.net on 13 janv. 2021
 */
 package fr.geairare;
 

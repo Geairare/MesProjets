@@ -2,9 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>Test1</groupId>
   <artifactId>Test1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>Test1</name>
   <description>Test</description>
+  
+  	<parent>
+		<artifactId>Tests</artifactId>
+		<groupId>Tests</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+  
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>

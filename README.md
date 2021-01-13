@@ -19,6 +19,10 @@ Utilise MonEclipse.ini
 
 Windows / preferences / Import: EclipsePreferences.epf
 
+Windows / preferences / Java / Code Style
++ Code Templates: importer codetemplate.xml
++ Formatter: sélectionner JavaCodeFormatter
+
 ## Dans Java Installed JREs ajouter JDK 11
 
 (e.g. E:\Java\jdk-11.0.8.10-hotspot)

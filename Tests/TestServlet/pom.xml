@@ -5,9 +5,16 @@
 	<groupId>fr.geairare</groupId>
 	<artifactId>TestServlet</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>TestServlet Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<parent>
+		<artifactId>Tests</artifactId>
+		<groupId>Tests</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
