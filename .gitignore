@@ -5,3 +5,4 @@ Doc/target
 /Tests/TestWeb/*.project
 /Tests/TestWeb/WebContent/META-INF
 /Tests/*.project
+/.project

@@ -1,5 +1,5 @@
 
-Tests PrimeFaces
+__Tests PrimeFaces__
 
 # Utiliser la cible Maven:
 - wildfly:run       __pour démarrer une instance de Wildfly__
