@@ -106,7 +106,4 @@ mvn -s /e/Maven/settingsGeairare.xml "-Darguments=-s E:\Maven\settingsGeairare.x
 
 # Markdown
 
-
-# Maven releases
-
-[LisMoi](Doc/LisMoi.md)
+[Markdown](Doc/doc/Markdown.md)
