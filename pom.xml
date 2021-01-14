@@ -5,9 +5,20 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<properties>
+        <scmUrl>scm:git:https://github.com/Geairare/MesProjets.git</scmUrl>
+    </properties>
+
+    <scm>
+        <connection>${scmUrl}</connection>
+        <developerConnection>${scmUrl}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
 	<modules>
 		<module>Doc</module>
 		<module>Test</module>
 		<module>Tests</module>
 	</modules>
+
 </project>
