@@ -72,6 +72,38 @@ Check box: Enable project specific settings
 */
 ```
 
+# Trucs et Astuces
+
+## Extraction GitHub en SSH
+
+```
+mkdir /home/moi
+
+ssh-keygen -t ed25519 -C "gco.alias@laposte.net"
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_ed25519
+clip < ~/.ssh/id_ed25519.pub
+# Ajouter la clef sur GitHub
+
+
+# Clone
+git clone git@github.com:Geairare/MesProjets.git
+```
+
+# Production release
+
+```
+cd MesProjets
+
+export PATH=/c/Users/moi/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin:/e/Java/jdk-11.0.8.10-hotspot/bin:/e/Maven/apache-maven-3.6.1/bin
+
+mvn -s /e/Maven/settingsGeairare.xml clean install
+
+mvn -s /e/Maven/settingsGeairare.xml "-Darguments=-s E:\Maven\settingsGeairare.xml" release:prepare release:perform
+```
+
+
 # Markdown
 
 
