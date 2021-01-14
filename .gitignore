@@ -4,5 +4,6 @@ Doc/target
 /Tests/TestWeb/*.classpath
 /Tests/TestWeb/*.project
 /Tests/TestWeb/WebContent/META-INF
+/Tests/TestWeb/release.properties
 /Tests/*.project
 /.project
