@@ -27,6 +27,18 @@ Windows / preferences / Java / Code Style
 
 (e.g. E:\Java\jdk-11.0.8.10-hotspot)
 
+## Utiliser un Maven externe
+
+(e.g. E:\Maven\apache-maven-3.6.1)
+
+## Déclarer la clef SSH pour GitHub
+
+Windows / Preferences / General / Network Connections / SSH2
+
+SSH2 home: C:\User\Geairare\.ssh
+Private keys: id_ed25519
+
+
 ## Détails
 
 Windows / Preferences / General / Startup and Shutdown
@@ -106,7 +118,4 @@ mvn -s /e/Maven/settingsGeairare.xml "-Darguments=-s E:\Maven\settingsGeairare.x
 
 # Markdown
 
-
-# Maven releases
-
-[LisMoi](Doc/LisMoi.md)
+[Markdown](Doc/doc/Markdown.md)
