@@ -9,3 +9,4 @@ Doc/target
 /.project
 target
 release.properties
+**/*.releaseBackup
