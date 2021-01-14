@@ -13,7 +13,7 @@
 		<maven-scm-plugin_version>1.9.5</maven-scm-plugin_version>
 		<maven-javadoc-plugin_version>2.10.4</maven-javadoc-plugin_version>
 
-		<scmUrl>scm:git@github.com:Geairare/MesProjets.git</scmUrl>
+		<scmUrl>scm:git:git@github.com:Geairare/MesProjets.git</scmUrl>
 	</properties>
 
 	<scm>
