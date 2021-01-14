@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Titre par défaut</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/markdown5.css">
+ </head>
+<h1><a href="#markdown" id="markdown"></a>Markdown</h1>
+<h2><a href="#table-des-matiéres" id="table-des-matiéres"></a>Table des matiéres</h2>
+<ol>
+<li><a href="#markdown">Markdown</a>
+<ol>
+<li><a href="#table-des-matiéres">Table des matiéres</a></li>
+</ol>
+</li>
+<li><a href="#usage">Usage</a>
+<ol>
+<li><a href="#utilisation-markdown-maven-plugin">Utilisation Markdown Maven plugin</a>
+<ol>
+<li><a href="#docheaderhtml">Doc/header.html</a></li>
+<li><a href="#docfooterhtml">doc/footer.html</a></li>
+<li><a href="#css-file-cssmarkdown5css">CSS file css/markdown5.css</a></li>
+</ol>
+</li>
+<li><a href="#md-file">MD file</a>
+<ol>
+<li><a href="#quote">Quote</a></li>
+<li><a href="#underline-inserted">Underline (inserted)</a></li>
+<li><a href="#html-integration">HTML integration</a></li>
+<li><a href="#table">Table</a></li>
+<li><a href="#footnote">Footnote</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Retour vers <a href="../README.md">README</a></p>
+<h1><a href="#usage" id="usage"></a>Usage</h1>
+<p>C.f. <a href="https://github.com/vsch/markdown-page-generator-plugin" title="markdown">markdown-page-generator-plugin</a></p>
+<h2><a href="#utilisation-markdown-maven-plugin" id="utilisation-markdown-maven-plugin"></a>Utilisation Markdown Maven plugin</h2>
+<pre><code class="language-xml">&lt;plugin&gt;
+  &lt;groupId&gt;com.vladsch.flexmark&lt;/groupId&gt;
+  &lt;artifactId&gt;markdown-page-generator-plugin&lt;/artifactId&gt;
+  &lt;version&gt;0.18.2&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;generate-docs&lt;/id&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;generate&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;phase&gt;install&lt;/phase&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+  &lt;configuration&gt;
+    &lt;alwaysUseDefaultTitle&gt;true&lt;/alwaysUseDefaultTitle&gt;
+    &lt;copyDirectories&gt;css,images&lt;/copyDirectories&gt;
+    &lt;defaultTitle&gt;Titre par dï¿½faut&lt;/defaultTitle&gt;
+    &lt;footerHtmlFile&gt;doc/footer.html&lt;/footerHtmlFile&gt;
+    &lt;headerHtmlFile&gt;doc/header.html&lt;/headerHtmlFile&gt;
+    &lt;inputDirectory&gt;doc&lt;/inputDirectory&gt;
+    &lt;inputEncoding&gt;${project.build.sourceEncoding}&lt;/inputEncoding&gt;
+    &lt;outputDirectory&gt;target/doc/html/generated2&lt;/outputDirectory&gt;
+    &lt;outputEncoding&gt;${project.build.sourceEncoding}&lt;/outputEncoding&gt;
+    &lt;pegdownExtensions&gt;AUTOLINKS,ANCHORLINKS,EXTANCHORLINKS,INSERTED,FENCED_CODE_BLOCKS,FOOTNOTES,TABLES,TOC&lt;/pegdownExtensions&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>Modification d'attributs dans la section configuration...</p>
+<pre><code class="language-xml">&lt;configuration&gt;
+	&lt;attributes&gt;
+		&lt;attribute&gt;TableBlock|style=&quot;border-collapse:collapse;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;TableHead|style=&quot;border:1px solid black;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;TableRow|style=&quot;border:1px solid black;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;TableCell|style=&quot;border:1px solid black;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;BlockQuote|style=&quot;color:blue;border-left: .5em solid #eee;padding: 0 1em;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;OrderedListItem|style=&quot;color:red;&quot;&lt;/attribute&gt;
+		&lt;attribute&gt;Code|style=&quot;color:blue;&quot;&lt;/attribute&gt;
+	&lt;/attributes&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>Ou en utilisant des fichiers CSS:</p>
+<blockquote>
+<p>TableBlock attribute overrides provided markdown.css</p>
+<pre><code class="language-java">table {
+border-collapse: collapse;
+}
+</code></pre>
+</blockquote>
+<h3><a href="#docheaderhtml" id="docheaderhtml"></a>Doc/header.html</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+	&lt;head&gt;
+		&lt;title&gt;titleToken&lt;/title&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/markdown5.css&quot;&gt;
+ &lt;/head&gt;
+</code></pre>
+<h3><a href="#docfooterhtml" id="docfooterhtml"></a>doc/footer.html</h3>
+<pre><code class="language-html">&lt;footer&gt;
+	&lt;img alt=&quot;logo&quot; src=&quot;images/logo.gif&quot;&gt;
+	Mes projets, mes tests
+&lt;/footer&gt;
+&lt;/html&gt;
+</code></pre>
+<h3><a href="#css-file-cssmarkdown5css" id="css-file-cssmarkdown5css"></a>CSS file css/markdown5.css</h3>
+<p>Extract from CSS file</p>
+<pre><code class="language-css">body {
+	margin: 0 auto;
+	background-color: white;
+	font-family: Georgia, Palatino, serif;
+	color: #333333; /* dark gray not black */
+	line-height: 1;
+	max-width: none;
+	padding: 30px;
+	font-size: 18px;
+	counter-reset: h1counter h2counter h3counter;
+}
+
+footer {
+	position: relative;
+	margin-top: 25px;
+	bottom: 0px;
+	width: 100%;
+	background-color: #c0c0c0;
+	display: table;
+}
+
+h1 {
+	font-size: 300%;
+	padding: 0px;
+	font-variant: small-caps;
+	page-break-before: always;
+	border-bottom: 8px solid #B60050;
+	counter-reset: h2counter h3counter;
+}
+
+h2 {
+	font-size: 150%/margin: 24px 0 6px;
+	border-bottom: 2px solid #B60050;
+}
+
+h3 {
+	font-size: 120%;
+	border-bottom: 1px solid #B60050;
+}
+
+h4 {
+	font-size: 100% font-variant:small-caps;
+}
+
+h5 {
+	font-size: 80% font-weight: 100;
+}
+
+h6 {
+	font-size: 80% font-weight: 100;
+	color: red;
+	font-variant: small-caps;
+}
+
+pre {
+	white-space: nowrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	-moz-tab-size: 2; /* tab-size code for Firefox */
+	-o-tab-size: 2; /* tab-size code for Opera */
+	tab-size: 2;
+}
+
+code {
+	display: block;
+	background: #EEE;
+	border-color: black;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: thin;
+	font-family: Consolas, Monaco, Andale Mono, monospace;
+	line-height: 1.5;
+	font-size: 13px;
+	white-space: pre-wrap;
+	padding: 0.5em 1em;
+}
+
+blockquote p {
+	/* color: #666; */
+	max-width: none;
+}
+
+hr {
+	text-align: left;
+	margin: 0 auto 0 0;
+	color: #999;
+	width: auto;
+}
+</code></pre>
+<h2><a href="#md-file" id="md-file"></a>MD file</h2>
+<h3><a href="#quote" id="quote"></a>Quote</h3>
+<blockquote>
+<p>Quote</p>
+</blockquote>
+<pre><code>&gt; Quote
+</code></pre>
+<h3><a href="#underline-inserted" id="underline-inserted"></a>Underline (inserted)</h3>
+<p><ins>inserted</ins></p>
+<pre><code>++inserted++
+</code></pre>
+<h3><a href="#html-integration" id="html-integration"></a>HTML integration</h3>
+<pre><code class="language-html">&lt;div&gt;
+	&lt;hr/&gt;
+		&lt;p&gt;This paragraph has a footnote&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; and another footnote&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+		&lt;p&gt;This one has more but out of sequence&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; and&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. &lt;/p&gt;
+	&lt;hr/&gt;
+	&lt;div class=&quot;footnotes&quot;&gt;
+		&lt;ol style=&quot;list-style-type: decimal;&quot;&gt;
+			&lt;li id=&quot;fn-1&quot;&gt;&lt;p&gt;Footnote 1&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+			&lt;li id=&quot;fn-2&quot;&gt;&lt;p&gt;Footnote 2 with a bit more text  and another continuation line&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+			&lt;li id=&quot;fn-3&quot;&gt;&lt;p&gt;Out of sequence footnote&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+			&lt;li id=&quot;fn-4&quot;&gt;&lt;p&gt;Have one that is used.&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<div>
+	<hr/>
+		<p>This paragraph has a footnote<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> and another footnote<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>.</p>
+		<p>This one has more but out of sequence<sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup> and<sup id="fnref-4"><a href="#fn-4" class="footnote-ref">4</a></sup>. </p>
+	<hr/>
+	<div class="footnotes">
+		<ol style="list-style-type: decimal;">
+			<li id="fn-1"><p>Footnote 1<a href="#fnref-1" class="footnote-backref">&#8617;</a></p></li>
+			<li id="fn-2"><p>Footnote 2 with a bit more text  and another continuation line<a href="#fnref-2" class="footnote-backref">&#8617;</a></p></li>
+			<li id="fn-3"><p>Out of sequence footnote<a href="#fnref-3" class="footnote-backref">&#8617;</a></p></li>
+			<li id="fn-4"><p>Have one that is used.<a href="#fnref-4" class="footnote-backref">&#8617;</a></p></li>
+		</ol>
+	</div>
+</div>
+<h3><a href="#table" id="table"></a>Table</h3>
+<table>
+<thead>
+<tr><th> Column 1 title </th><th align="left"> Column 2 title </th><th align="left"> Column 3 title </th><th align="left"> Column 4 title </th></tr>
+</thead>
+<tbody>
+<tr><td> Column 1 line 1 </td><td align="left"> Column 2 line 1  <a href="#1">(1)</a> </td><td align="left"> Column 3 line 1  <a href="#2">(2)</a> </td><td align="left"> Column 4 line 1  <a href="#3">(3)</a> </td></tr>
+<tr><td> Column 1 line 2 </td><td align="left"> Column 2 line 2 </td><td align="left"> Column 3 line 2 </td><td align="left"> Column 4 line 2 </td></tr>
+<tr><td> Column 1 line 3 </td><td align="left"> Column 2 line 3 </td><td align="left"> Column 3 line 3 </td><td align="left"> Column 4 line 3 </td></tr>
+</tbody>
+</table>
+<h6><a href="#1" id="1"></a>(1)</h6>
+<p>Marker 1 :+1: Bla bla bla</p>
+<h6><a href="#2" id="2"></a>(2)</h6>
+<p>Marker 2 Bla bla bla</p>
+<h6><a href="#3" id="3"></a>(3)</h6>
+<p>Marker 3 Bla bla bla</p>
+<h3><a href="#footnote" id="footnote"></a>Footnote</h3>
+<p>Footnote<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup> always appear at the end of document</p>
+<pre><code>Footnote[^1] example
+
+[^1]: Foot note text
+Bla bla bla
+</code></pre>
+<p>Return to [Table des matiéres](Table des matiéres)</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-1">
+<p>Foot note text Bla bla bla</p>
+<a href="#fnref-1" class="footnote-backref">&#8617;</a>
+</li>
+</ol>
+</div>
+<footer>
+	<img alt="logo" src="images/Monlogo.gif">
+	Mes projets, mes tests
+</footer>
+</html>

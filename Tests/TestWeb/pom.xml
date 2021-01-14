@@ -6,7 +6,7 @@
 	<artifactId>TestWeb</artifactId>
 	<packaging>war</packaging>
 
-  	<parent>
+	<parent>
 		<artifactId>Tests</artifactId>
 		<groupId>Tests</groupId>
 		<version>0.0.1-SNAPSHOT</version>
@@ -25,6 +25,16 @@
 		<wildfly.version>15.0.1.Final</wildfly.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>Tests</groupId>
+				<artifactId>Tests</artifactId>
+				<version>${project.parent.version}</version>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -39,6 +49,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>Tests</groupId>
+			<artifactId>Tests</artifactId>
+			<type>pom</type>
+		</dependency>
 	</dependencies>
 
 	<build>

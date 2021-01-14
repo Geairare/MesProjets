@@ -11,6 +11,17 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>MesProjets</groupId>
+				<artifactId>MesProjets</artifactId>
+				<version>${project.parent.version}</version>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<modules>
 		<module>MonProjetTest</module>
 		<module>MonProjetTest2</module>
@@ -18,4 +29,13 @@
 		<module>TestStruts</module>
 		<module>TestWeb</module>
 	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>MesProjets</groupId>
+			<artifactId>MesProjets</artifactId>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+
 </project>
