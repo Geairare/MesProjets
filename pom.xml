@@ -49,6 +49,8 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${maven-release-plugin_version}</version>
 					<configuration>
+						<!-- Evite de déployer vers une repo non existante -->
+						<goals>install</goals>
 						<!-- do NOT push sources and javadoc -->
 						<useReleaseProfile>false</useReleaseProfile>
 					</configuration>
