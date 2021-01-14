@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>MesProjets</groupId>
 	<artifactId>MesProjets</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -19,7 +19,7 @@
 	<scm>
 		<connection>${scmUrl}</connection>
 		<developerConnection>${scmUrl}</developerConnection>
-		<tag>MesProjets-0.0.4</tag>
+		<tag>MesProjets-0.0.1</tag>
 	</scm>
 
 	<modules>
