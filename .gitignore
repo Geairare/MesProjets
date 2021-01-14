@@ -7,3 +7,5 @@ Doc/target
 /Tests/TestWeb/release.properties
 /Tests/*.project
 /.project
+target
+release.properties
