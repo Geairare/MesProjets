@@ -103,6 +103,13 @@ clip < ~/.ssh/id_ed25519.pub
 git clone git@github.com:Geairare/MesProjets.git
 ```
 
+Penser éventuellement à positionner
+
+```
+git config --local user.name "Geai rare"
+git config --local user.email "gco.alias@laposte.net"
+```
+
 # Production release
 
 ```
