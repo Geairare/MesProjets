@@ -19,7 +19,7 @@
 	<scm>
 		<connection>${scmUrl}</connection>
 		<developerConnection>${scmUrl}</developerConnection>
-		<tag>MesProjets-0.0.1</tag>
+		<tag>MesProjets-0.0.6-SNAPSHOT</tag>
 	</scm>
 
 	<modules>
