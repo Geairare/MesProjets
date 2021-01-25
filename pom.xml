@@ -19,7 +19,11 @@
 	<scm>
 		<connection>${scmUrl}</connection>
 		<developerConnection>${scmUrl}</developerConnection>
+<<<<<<< HEAD
 		<tag>MesProjets-0.0.6-SNAPSHOT</tag>
+=======
+		<tag>MesProjets-0.0.1</tag>
+>>>>>>> 3260055... [maven-release-plugin] prepare for next development iteration
 	</scm>
 
 	<modules>
