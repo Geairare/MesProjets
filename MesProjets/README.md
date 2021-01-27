@@ -100,7 +100,9 @@ clip < ~/.ssh/id_ed25519.pub
 
 
 # Clone
+
 git clone git@github.com:Geairare/MesProjets.git
+
 ```
 
 Penser éventuellement à positionner
@@ -110,7 +112,23 @@ git config --local user.name "Geai rare"
 git config --local user.email "gco.alias@laposte.net"
 ```
 
+ou mettre à jour le fichier ~/.gitconfig
+
+```
+[user]
+        name = Geai rare
+        email = gco.alias@laposte.net
+```
+
+
 # Production release
+
+Modifier le numéro de version des pom.xml:
+
+```
+mvn -s /e/Maven/settingsGeairare.xml -f MesProjets/pom.xml versions:set -DgenerateBackupPoms=false -DnewVersion=0.1.0-SNAPSHOT
+```
+
 
 ```
 cd MesProjets
