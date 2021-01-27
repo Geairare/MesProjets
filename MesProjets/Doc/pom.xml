@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>geairare</groupId>
+	<artifactId>Doc</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<artifactId>MesProjets</artifactId>
+		<groupId>MesProjets</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.ruleoftech</groupId>
+				<artifactId>markdown-page-generator-plugin</artifactId>
+				<version>2.0.1</version>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>install</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<alwaysUseDefaultTitle>true</alwaysUseDefaultTitle>
+					<copyDirectories>css,images</copyDirectories>
+					<defaultTitle>Titre par défaut</defaultTitle>
+					<footerHtmlFile>${project.basedir}/doc/html/Footer.html</footerHtmlFile>
+					<headerHtmlFile>${project.basedir}/doc/html/Header.html</headerHtmlFile>
+					<inputDirectory>${project.basedir}/doc</inputDirectory>
+					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+					<outputDirectory>target/doc/html/generated</outputDirectory>
+					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+					<pegdownExtensions>AUTOLINKS,ANCHORLINKS,EXTANCHORLINKS,INSERTED,FENCED_CODE_BLOCKS,FOOTNOTES,TABLES,TOC</pegdownExtensions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
