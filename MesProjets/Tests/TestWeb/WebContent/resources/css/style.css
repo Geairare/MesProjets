@@ -1,0 +1,135 @@
+/*
+ Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+ Code licensed under the BSD License:
+ http://developer.yahoo.net/yui/license.txt
+ version: 2.8.0r4
+ */
+html {
+	color: #5F608B;
+	/*	background: #666666;*/
+	font: 10px/1.0 "Lucida Sans Unicode","Lucida Grande",sans-serif;
+	/* font-family: verdana, helvetic, MS Sans Serif; */
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+
+fieldset,img {
+	border: 0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var,optgroup {
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+del,ins {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+q:before,q:after {
+	content: '';
+}
+
+abbr,acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+sup {
+	vertical-align: baseline;
+}
+
+sub {
+	vertical-align: baseline;
+}
+
+legend {
+	color: #000;
+}
+
+input,button,textarea,select,optgroup,option {
+	font-size: inherit;
+	font-style: inherit;
+}
+
+table {
+	border-collapse: separate;
+	/*    border-spacing: 2px; */
+	font-size: inherit;
+	border-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.layoutNorth, .layoutNorth div {
+background:  #bbb url(../images/gradient_top.gif) repeat-x !important;
+color: #4f4f4f;
+}
+
+.button-img-reload .button-img-delete .button-img-refresh
+{
+}
+
+button.button-img-reload span:first-child
+{
+    background: url(../images/menu_refresh.gif);   
+}
+
+button.button-img-delete span:first-child
+{
+    background: url(../images/menu_delete.gif);   
+}
+
+button.button-img-refresh span:first-child
+{
+    background: url(../images/menu_refresh.gif);   
+}
+
+button.button-img-stop span:first-child
+{
+    background: url(../images/menu_stop.gif);   
+}
+
+button.button-img-add span:first-child
+{
+    background: url(../images/menu_add.gif);   
+}
+
+/*
+.ui-widget-content {
+border: none;
+background: #ffffff;
+color: #4f4f4f;
+}
+*/
+.rowOnTop
+{
+	vertical-align: top;
+}
+
+.panelBody
+{
+	overflow-y: auto;
+}
+
+.hide-column-names table thead tr {
+    display: none;
+}
+
+/* Force overwrite input disabled style */
+input:disabled {
+	opacity: 1!important;
+	color: red!important;
+}
+
+   

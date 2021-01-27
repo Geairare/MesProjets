@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application name="MonProjetTestSwing">
+	<!-- Délai, en secondes, pour afficher les KPIs -->
+	<displayKpiDelay>10</displayKpiDelay>
+	
+	<!-- Localisations supportées: fr_FR, en_EN -->
+	<localisation>en_EN</localisation>
+</application>

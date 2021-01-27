@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>MesProjets</groupId>
+	<artifactId>MesProjets</artifactId>
+	<version>0.0.6-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<maven-source-plugin_version>3.0.1</maven-source-plugin_version>
+		<maven-version-plugin_version>2.5</maven-version-plugin_version>
+		<maven-release-plugin_version>2.5.3</maven-release-plugin_version>
+		<maven-deploy-plugin_version>2.8.2</maven-deploy-plugin_version>
+		<maven-scm-plugin_version>1.9.5</maven-scm-plugin_version>
+		<maven-javadoc-plugin_version>2.10.4</maven-javadoc-plugin_version>
+
+		<scmUrl>scm:git:git@github.com:Geairare/MesProjets.git</scmUrl>
+	</properties>
+
+	<scm>
+		<connection>${scmUrl}</connection>
+		<developerConnection>${scmUrl}</developerConnection>
+		<tag>MesProjets-0.0.1</tag>
+	</scm>
+
+	<modules>
+		<module>Doc</module>
+		<module>Test</module>
+		<module>Tests</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${maven-version-plugin_version}</version>
+					<configuration>
+						<generateBackupPoms>false</generateBackupPoms>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin_version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${maven-release-plugin_version}</version>
+					<configuration>
+						<!-- Evite de déployer vers une repo non existante -->
+						<goals>install</goals>
+						<!-- do NOT push sources and javadoc -->
+						<useReleaseProfile>false</useReleaseProfile>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${maven-deploy-plugin_version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>${maven-scm-plugin_version}</version>
+					<configuration>
+						<connectionType>connection</connectionType>
+						<providerImplementations>
+							<git>git</git>
+						</providerImplementations>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin_version}</version>
+					<configuration>
+						<show>public</show>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

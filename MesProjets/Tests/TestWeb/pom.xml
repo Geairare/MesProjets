@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.geairare</groupId>
+	<artifactId>TestWeb</artifactId>
+	<packaging>war</packaging>
+
+	<parent>
+		<artifactId>Tests</artifactId>
+		<groupId>Tests</groupId>
+		<version>0.0.6-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<project.java.version>11</project.java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- wildlfy-maven-plugin -->
+		<wildfly.hostname>localhost</wildfly.hostname>
+		<wildfly.username>admin</wildfly.username>
+		<wildfly.password>admin123</wildfly.password>
+		<wildfly.version>15.0.1.Final</wildfly.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>Tests</groupId>
+				<artifactId>Tests</artifactId>
+				<version>${project.parent.version}</version>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>Tests</groupId>
+			<artifactId>Tests</artifactId>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<!-- Copy messages.properties in WAR / WEB-INF / classes / resources 
+					and substitute ${pom.version} with the current version -->
+				<directory>src/main/resources/</directory>
+				<includes>
+					<include>*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+				<targetPath>resources</targetPath>
+			</resource>
+		</resources>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.wildfly.plugins</groupId>
+					<artifactId>wildfly-maven-plugin</artifactId>
+					<version>2.0.2.Final</version>
+					<configuration>
+						<add-user>
+							<users>
+								<user>
+									<username>${wildfly.username}</username>
+									<password>${wildfly.password}</password>
+								</user>
+							</users>
+						</add-user>
+						<hostname>${wildfly.hostname}</hostname>
+						<skip>true</skip>
+						<version>${wildfly.version}</version>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<release>11</release>
+					<source>${project.java.version}</source>
+					<target>${project.java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

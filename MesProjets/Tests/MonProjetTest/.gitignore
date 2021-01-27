@@ -1,0 +1,7 @@
+/target/
+/.project
+/.classpath
+/.settings/
+/traces/
+/Configuration.xml
+/LisMoiDéveloppeur.txt
