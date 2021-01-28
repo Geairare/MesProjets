@@ -120,6 +120,20 @@ ou mettre à jour le fichier ~/.gitconfig
         email = gco.alias@laposte.net
 ```
 
+## Git flow
+
+git flow init
+No branches exist yet. Base branches must be created now.
+Branch name for production releases: [master]
+Branch name for "next release" development: [develop]
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/]
+Bugfix branches? [bugfix/]
+Release branches? [release/]
+Hotfix branches? [hotfix/]
+Support branches? [support/]
+Version tag prefix? []
 
 # Production release
 
