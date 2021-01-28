@@ -120,8 +120,11 @@ ou mettre à jour le fichier ~/.gitconfig
         email = gco.alias@laposte.net
 ```
 
-## Git flow
+## [Git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+(https://grafikart.fr/tutoriels/git-flow-742)  
+(http://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html)
 
+```
 git flow init
 No branches exist yet. Base branches must be created now.
 Branch name for production releases: [master]
@@ -134,6 +137,7 @@ Release branches? [release/]
 Hotfix branches? [hotfix/]
 Support branches? [support/]
 Version tag prefix? []
+```
 
 # Production release
 
