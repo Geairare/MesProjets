@@ -1,6 +1,6 @@
 # Markdown
 
-##Table des mati�res
+##Table des matiéres
 [TOC levels=1-4 bullet hierarchy numbered]
 
 Retour vers [README](../README.md)
@@ -28,7 +28,7 @@ C.f. [markdown-page-generator-plugin](https://github.com/vsch/markdown-page-gene
   <configuration>
     <alwaysUseDefaultTitle>true</alwaysUseDefaultTitle>
     <copyDirectories>css,images</copyDirectories>
-    <defaultTitle>Titre par d�faut</defaultTitle>
+    <defaultTitle>Titre par dï¿½faut</defaultTitle>
     <footerHtmlFile>doc/footer.html</footerHtmlFile>
     <headerHtmlFile>doc/header.html</headerHtmlFile>
     <inputDirectory>doc</inputDirectory>
@@ -269,6 +269,6 @@ Bla bla bla
 [^1]: Foot note text
 Bla bla bla
 
-Return to [Table des mati�res](Table des mati�res)
+Return to [Table des matiéres](Table des matiéres)
 
 
