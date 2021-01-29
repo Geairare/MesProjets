@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>MesProjets</groupId>
 	<artifactId>MesProjets</artifactId>
@@ -14,6 +16,8 @@
 		<maven-source-plugin_version>3.0.1</maven-source-plugin_version>
 		<maven-version-plugin_version>2.5</maven-version-plugin_version>
 		<wildfly-maven-plugin_version>2.0.2.Final</wildfly-maven-plugin_version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<scmUrl>scm:git:git@github.com:Geairare/MesProjets.git</scmUrl>
 	</properties>

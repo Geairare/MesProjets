@@ -158,7 +158,6 @@ mvn -s /e/Maven/settingsGeairare.xml clean install
 mvn -s /e/Maven/settingsGeairare.xml "-Darguments=-s E:\Maven\settingsGeairare.xml" release:prepare release:perform
 ```
 
-
 # Markdown
 
 [Markdown](Doc/doc/Markdown.md)
